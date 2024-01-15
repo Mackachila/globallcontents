@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registration</title>
+  <link rel="stylesheet" type="text/css" href="./style.css">
+  <script defer src="./index.js"></script>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap">
+  <script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>   
+</head>
+<body>
+
+  <header>
+    <div class="container">
+      <h1 style="font-size: 300%">Globall Contents</h1>
+      <h3>Let us get you Registered.</h3>
+    </div>
+  </header>
+
+  <section class="features">
+    <div class="container">
+      <div class="feature">
+        <img src="writing.png" alt="Write">
+        <p>Provide correct phone number and email address. We will use these details for your payments.<b style="color: red">Take note: you will not be able to edit them after registration</b></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta">
+    <div class="container">
+      <div class="registration">
+        <form action="/register" method="post" id="registration_form">
+          <h1>Register</h1>
+          <div id="error-messages" style="color: red;"></div><br>
+          <p id="registration-emptyfield-error" class="error"></p>
+          <input style="width: 95%" type="text" name="username" id="username" placeholder="Username">
+          <p id="registration-username-error" class="error"></p>
+          <input style="width: 95%" type="text" name="email" id="email" placeholder="Email Address">
+          <p id="registration-email-error" class="error"></p>
+          <div id="countryCodePicker">Select Your country<br>
+            <select  style="width: 95%; height: 30px" id="countryList" onchange="updatePhoneNumberInput()"></select><br><br>
+            <input  style="width: 95%; height: 30px; font-size: 100%" type="text" id="phone_number" name="phone_number" placeholder="Phone number">
+            <p id="registration-phone-error" class="error"></p>
+            <input style="width: 95%" type="password" name="password" id="password" placeholder="Password">
+            <p id="registration-password-error" class="error"></p>
+            <input style="width: 95%" type="password" name="confirm_password" id="confirm_password" placeholder="Confirm Password">
+            <p id="registration-confirmpassword-error" class="error"></p>
+            <button type="submit">Register now</button><br><br>
+            Have an account?<a href="login.html"> Login</a>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2024 Globall Contents. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Display error messages based on the error parameter
+    function errorMessages() {
+      const urlParams = new URLSearchParams(window.location.search);
+      const error = urlParams.get('error');
+
+      if (error === 'qjrfapps_gdfajsd_yrkwaqtefd_hdfreaujerw') {
+        document.getElementById('error-messages').textContent = 'Username is taken.Ensure you reselect your country';
+      } else if (error === 'pdr_hdfwqsfat_jftgsre_urtoyrsg') {
+        document.getElementById('error-messages').textContent = 'Email already registered.Ensure you reselect your country';
+      } else if (error === 'hfryts_knfekg_kqwasy_opvrw') {
+        document.getElementById('error-messages').textContent = 'Phone number already registered.Ensure you reselect your country';
+      } else if (error === 'squyta_kiyvcmcs_ytsdwqzp_lmorodr') {
+        document.getElementById('error-messages').textContent = 'There was an error. Please try again.Ensure you reselect your country';
+      }
+    }
+
+    // Restore form data from sessionStorage
+    function restoreFormData() {
+      const formData = JSON.parse(sessionStorage.getItem('registrationFormData')) || {};
+
+      document.getElementById('username').value = formData.username || '';
+      document.getElementById('email').value = formData.email || '';
+      document.getElementById('phone_number').value = formData.phone_number || '';
+
+      // Clear stored form data after restoring
+      sessionStorage.removeItem('registrationFormData');
+    }
+
+    // Save form data to sessionStorage
+    function saveFormData() {
+      const formData = {
+        username: document.getElementById('username').value,
+        email: document.getElementById('email').value,
+        phone_number: document.getElementById('phone_number').value,
+        // ... (save other form fields)
+      };
+
+      sessionStorage.setItem('registrationFormData', JSON.stringify(formData));
+    }
+
+    // Run the script when the DOM content is loaded
+    document.addEventListener('DOMContentLoaded', function () {
+      errorMessages();
+      restoreFormData(); // Restore form data on page load
+
+      // Add an event listener to the form submission
+      document.getElementById('registration_form').addEventListener('submit', function (event) {
+        // Save form data before submission
+        saveFormData();
+      });
+    });
+
+    // Function to send OTP
+    function sendOtp() {
+      const phoneNumber = document.getElementById('phone_number').value;
+      // Make an AJAX request to your server to trigger OTP sending
+      // You can use fetch or other AJAX libraries
+      fetch('/send-otp', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ phoneNumber }),
+      })
+      .then(response => response.json())
+      .then(data => {
+        if (data.success) {
+          alert('OTP sent successfully. Check your phone.');
+        } else {
+          alert('Failed to send OTP. Please try again.');
+        }
+      })
+      .catch(error => {
+        console.error('Error sending OTP:', error);
+      });
+    }
+  </script>
+</body>
+</html>

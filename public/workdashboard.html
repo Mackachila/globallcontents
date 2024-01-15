@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tasksdashboard</title>
+  <link rel="stylesheet" type="text/css" href="./workdashboard.css">
+
+  <script defer src="./workdashboard.js"></script>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap">
+  <script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
+  </head>
+<body>
+<div id="container">
+<div id="accountsecction">
+  <b>Deposit History</b><br><br>
+  <div id="notransactions"></div>
+  
+  <table id="transactions-table">
+    <thead>
+      <tr>
+        <th>Date</th>
+        <th>Amount</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody id="transactions-body">
+     
+    </tbody>
+  </table>
+</div>
+
+<div id="walletsecction">
+	<div class="user-info"><br>
+
+    <section id="usernamelabel">
+      <b id="username-display"></b>
+      </section>
+
+      <section id="logoutsecction">
+      <b>Logout</b>
+        </section>
+
+        <section id="invitationsection">
+          <b>Invite a friend</b>
+            </section>
+    <br><br><br>
+    <section id="otheraccountinfo">
+      <p>Ballance: <b id="account_ballance"></b></p>
+      <p>Type: <b id="current_account"></b></p>
+      <p>Phone number: <b id="account_phonenumber"></b></p>
+      <p>Email: <b id="account_email"></b><b id="account-type"></b></p>
+      
+    </section>
+    
+    <section id="Depositwithdrawal">
+      <b>Account permission details<br>
+      <table>
+        <tr>
+          <td>Tasks per day</td>
+          <td><b id="tasks"></b></td>
+          <td>Earnings Today</td>
+          <td><b id="todays"></b></td>
+            </tr>
+        <tr>
+          <td><b>Done Today</b></td>
+          <td><b id="done">2</b></td>
+          <td><b>Earnings this week</b>
+            <td><b id="done">2</b></td>
+          </td>
+        </tr>
+        <tr>
+          <td>Remaining Today</td>
+          <td><b id="remainingtasks"></b></td>
+          <td>Total Deposit</td>
+          <td>Contact</td>
+            </tr>
+            <tr>
+              <td>Earning per task</td>
+              <td><b id="earnings"></b></td>
+              <td>Total withdrawal</td>
+              <td>Contact</td>
+                </tr>
+              </b>
+             </table>
+     </section>
+      <p><button id="withdraw1" onclick="showSection('withdrawalsecction')">Withdraw</button>
+       <button id="deposit1" onclick="showSection('depositsecction')">Deposit</button>
+      <p>Observe integrity in you tasks always</p><br><br><br><br><br>
+
+      
+    </div>
+</div>
+
+
+<div id="taskssecction">
+  <section id="section1">
+  Free Account. Earn KES.23 per day
+  <p>Do 1 task per day free and earn KES.23 per task. Copy paste the questions into ChatGpt and edit for us the results.</p>
+  
+ <button>Unlocked</button>
+  </section>
+
+<section id="section2">
+  <h3>WLD Account (KES. 500). Earn KES.62 per day</h3>
+  <p>Do 1 task per day and earn KES.62 per task.</p>
+  <button>Locked</button>
+</section>
+
+<section id="section3">
+  <h3>INJ Account (KES. 2,000). Earn KES.154 per day</h3>
+  <p>Do 2 tasks per day and earn KES.77 per task.</p>
+   <button>Locked</button>
+</section>
+
+<section id="section4">
+  <h3>BNB Account (KES. 5,000). Earn KES.278 per day</h3>
+  <p>Do 2 tasks per day and earn KES.139 per task.</p>
+  <button>Locked</button>
+</section>
+
+<section id="section5">
+  <h3>SOL Account (KES. 15,000). Earn KES.702 per day</h3>
+  <p>Do 3 tasks per day and earn KES.234 per task.</p>
+  <button>Locked</button>
+</section>
+
+<section id="section6">
+  <h3>ETH Account (KES. 40,000). Earn KES.1,161 per day</h3>
+  <p>Do 3 tasks per day and earn KES.387 per task.</p>
+  <button>Locked</button>
+</section>
+
+<section id="section7">
+  <h3>BTC Account (KES. 80,000). Earn KES.2,325 per day</h3>
+  <p>Do 3 tasks per day and earn KES.775 per task.</p>
+  <button>Locked</button>
+</section>
+
+<section id="section8">
+  <h3>Silver Account (KES.200,000). Earn KES.6,200 per day</h3>
+  <p>Do 5 tasks per day and earn KES.1240 per task.</p>
+  <button>Locked</button>
+</section>
+
+<section id="section8">
+  <h3>GOLD Account (KES.500,000). Earn KES.15,345 per day</h3>
+  <p>Do 9 tasks per day and earn KES.1,705 per task.</p>
+  <button>Locked</button>
+</section>
+
+<section id="section8">
+  <h3>GOLD Account (KES.1,000,000). Earn KES.31,000 per day</h3>
+  <p>Do 10 tasks per day and earn KES.3,100 per task.</p>
+  <button>Locked</button>
+</section>
+
+<section id="section8">
+  <h3>GOLD Account (KES.3,000,000). Earn KES.77,500 per day</h3>
+  <p>Do 10 tasks per day and earn KES.7,750 per task.</p>
+  <button>Locked</button>
+</section>
+
+</div>
+
+<div id="depositsecction">
+  <section id="otheraccountinfo">
+    <b style="color: green; font-size: 200%;">M-Pesa Deposit</b>
+    <form id="depositform">
+    <label>Enter amount to deposit<sup style="color: red;">*</sup></label><br><br>
+    <input type="number" id="depositammount" placeholder="Between KES.500 - KES.450,000" oninput="dp()">
+    <p id="depositamount-error-message" class="error"></p>
+  </form>
+  
+    
+    <section id="depositsteps">
+      <h3>Steps to successfully complete this deposit</h3>
+      <ol>
+        <li>Go to M-Pesa paybil</li>
+        <li>Pay KES. <b id="payammount"></b></li>
+        <li>Business Number <b>542542</b></li>
+        <li>Account Number <b>647000</b></li>
+        <li>Wait for M-Pesa confirmation message and enter the code bellow to complete your deposit</li>
+      </ol><br>
+      <button id="depositammountcancel" onclick="pr()">Cancel</button>
+      <div id="content">
+        <b style="font-size: 130%;">Deposit Verification</b>
+        <p>After making the payment, need to wait between 5-10 minutes before you verify your payment</p>
+        <p>If after 15 minutes your code still fails to verify, please contact support</p>
+        <b>Transaction ID:</b>
+        <input type="text" id="transactionId" name="transactionId" placeholder=" M-Pesa confirmation code e.g SAE9Y3P9VT">
+        <p id="id-error-message" class="error"></p>
+        <button  id="depositverification" onclick="verifyPayment()">Verify Payment</button>
+        <button id="suportcontact" >Contact Support</button>
+        <p>Observe integrity in you tasks always</p><br><br><br><br><br>
+    </section>
+      </section>
+    
+</div>
+
+<div id="withdrawalsecction">
+  <section id="otheraccountinfo">
+    <b style="color: green; font-size: 150%;">Withdraw Funds</b>
+    <form  id="withdrawalform">
+    <label>Enter amount to withdraw<sup style="color: red;">*</sup></label><br><br>
+    <input type="number" id="withdrawalatammount" name="withdrawalatammount" placeholder="Minimum KES.500 Maximum.450,000" oninput="wd()">
+    <input type="hidden" id="phonenumbertext" name="phonenumbertext">
+    <p id="withdrwal-error-message" class="error"></p>
+     </form>
+     <button id="withdrawalconfirmationbutton" onclick="withdraw()">Confirm Withdrawal</button>
+    
+    <section id="withdrawalconfirmation">
+      <h3>Please confirm these details</h3>            
+        <p>Your withdrawal of KES. <b id="withdrawalconfirmationatammount"></b> will be paid to <b id="withdrawalphone"></b></p>
+        <p>Note: Withdrawals are subjected to 5% tax</p>
+        
+        <button id="withdrawalcancelbutton" onclick="pr()">Cancel</button>
+        <button id="withdrawalsupport">Not your number? Contact Support</button>
+      
+    
+  </section><br><br>
+<b id="nowithdrawals"></b><br>
+  <table id="withdrawals-table">
+    <thead>
+      <tr>
+        <th>Date</th>
+        <th>Amount</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody id="withdrawals-body">
+     
+    </tbody>
+  </table>
+</div>
+
+<div id="teamsecction">
+  <section id="teaminfo">
+    These are your team members
+    
+  </section>
+</div>
+</div>
+
+
+
+
+
+
+<section id="bottomsecction">
+  
+<button id="buttonRight" onclick="showSection('accountsecction')">
+<b>My Funds</b>
+</button>
+<button id="buttonCenter" onclick="showSection('taskssecction')">
+<b>My Tasks</b>
+</button>
+<button id="buttonLeft" onclick="showSection('walletsecction')">
+<b>My Account</b>
+
+<button id="buttonRightmost" onclick="showSection('teamsection')">
+  <b>My Team</b>
+</button>
+</section></div>
+
+
+</body>
+</html>

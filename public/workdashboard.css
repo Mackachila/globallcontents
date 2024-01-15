@@ -1,0 +1,378 @@
+ body {
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            font-family: 'Open Sans', sans-serif;
+        }
+        
+        #container {
+            position: relative;
+            height: 100vh;
+        }
+
+        #accountsecction, #taskssecction, #walletsecction, #depositsecction,  #withdrawalsecction{
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: white;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        #walletsecction{
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: white;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        #address23{
+            display: none;
+           
+        }
+        
+        #buttonRight, #buttonCenter, #buttonLeft, #buttonRightmost{
+            position: fixed;
+            bottom: 15px;
+            padding: 7px;
+            cursor: pointer;
+            
+            border-radius: 10px;
+            font-size: 12px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            display: block;
+            
+            border-color: white;
+        }
+
+        #buttonRight {
+          left: 60%;
+            position: fixed;
+            background-color: transparent;
+            
+        }
+
+        #buttonCenter {
+        	position: fixed;
+            left: 40%;
+            background-color: transparent;
+            transform: translateX(-50%);
+        }
+
+        #buttonLeft {
+            left: 10px;
+            background-color: transparent;
+        }
+
+        #buttonRightmost {
+          right: 10px;
+            position: fixed;
+            background-color: transparent;
+            
+        }
+
+        #bottomsecction{
+          position: fixed;
+          bottom: 0px;
+          background-color: rgb(255, 0, 162);
+          display: flex;
+          display: block;
+          width: 100%;
+          padding: 28px;
+          border-top: solid black 1pt;
+          
+      }
+
+       #logoutsecction {
+      background-color: red;
+      color: white;
+      border: none;
+      width: 40%;
+      border-radius: 7px;
+      padding: 7px;
+      margin-right: 11px;
+      text-align: center;
+      cursor: pointer;
+      float: right;
+    }
+    #invitationsection {
+      background-color: rgb(255, 0, 162);
+      color: white;
+      border: none;
+      width: 40%;
+      float: left;
+      margin-left: 11px;
+      border-radius: 7px;
+      padding: 7px;
+      text-align: center;
+      cursor: pointer;
+    }
+
+    #submittask {
+      background-color: green;
+      color: white;
+      border: none;
+      border-radius: 7px;
+      padding: 10px;
+      cursor: pointer;
+    }
+
+    #deposit1 {
+      background-color: rgb(255, 0, 162);
+      color: white;
+      border: none;
+      border-radius: 7px;
+      width: 40%;
+      margin-right: 11px;
+      float: right;
+      padding: 10px;
+      cursor: pointer;
+    }
+
+    #withdraw1 {
+      background-color: rgb(255, 0, 162);
+      color: white;
+      width: 45%;
+      margin-left: 11px;      
+      border: none;
+      border-radius: 7px;
+      padding: 10px;
+      cursor: pointer;
+    }
+
+    #content {
+      margin-top: 0px; /* Adjust based on navbar height */
+       /* Adjust based on dashboard width */
+      padding: 20px;
+      box-sizing: border-box;
+      z-index: 0;
+    }
+
+    #logout-button{
+      background-color: #ff0000;
+      padding: 5px;
+      font-size: 100%;
+      margin: 10px;
+      border: 1px solid hsl(0, 0%, 87%);
+      border-radius: 5px;
+      text-align: center;
+          }
+
+    #usernamelabel {
+      background-color: hsl(120, 73%, 75%);
+      padding: 5px;
+      font-size: 130%;
+      margin: 10px;
+      border: 1px solid hsl(0, 0%, 87%);
+      border-radius: 5px;
+      text-align: center;
+          }
+
+    #otheraccountinfo {
+      background-color: white;
+      padding: 5px;
+      margin: 10px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      
+          }
+    #Depositwithdrawal {
+      background-color: #f5f5f5;
+      padding: 5px;
+      margin: 10px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      
+            }
+            table {
+              border-collapse: collapse;
+              width: 100%;
+              font-size: 70%;
+            }
+            th, td {
+              border: 1px solid white;
+              padding: 5px;
+              text-align: left;
+            }
+     #section1 {
+      background-color: #f4f4f4;
+      padding: 5px;
+      margin: 10px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      
+          }
+    #section2 {
+      background-color: lightgreen;
+      padding: 5px;
+      margin: 10px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      
+    }
+    #section3 {
+      background-color: #ff6347;
+      padding: 5px;
+      margin: 10px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      
+    }
+
+    #section4 {
+      background-color: lightblue;
+      padding: 5px;
+      margin: 10px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      
+    }
+
+    #section5 {
+      background-color: #ffa500;
+      padding: 5px;
+      margin: 10px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      
+    }
+
+    #section6 {
+      background-color: #90ee90;
+      padding: 5px;
+      margin: 10px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      
+    }
+
+    #section7 {
+      background-color: #87ceeb;
+      padding: 5px;
+      margin: 10px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      
+    }
+
+    #section8 {
+      background-color: #90ee90;
+      padding: 5px;
+      margin: 10px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      
+
+    }
+    p{
+       margin: 11px 0;
+       font-size: 80%;
+    }
+
+    textarea {
+      width: 99%;
+      height: 300px;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+      padding: 10px;
+      font-size: 110%;
+    }
+    #deposit-confirmation-form {
+      border-color: #90ee90;
+      border-radius: 5px;
+      border-style: solid;
+      border-width: 2px;
+      padding: 4px;
+      width: 50%;
+      
+    }
+    #depositform {
+      padding: 6px;
+      
+    }
+    input[type = number],[type = text]{
+      width: 95%;
+      border-color: #90ee90;
+      padding: 5px;
+      border-width: 1pt;
+      font-size: 100%;
+      border-radius: 5px;
+    }
+
+    #depositsteps{
+      display: none;
+    }
+
+    #withdrawalconfirmation{
+      display: none;
+    }
+    #withdrawalconfirmationbutton{
+      display: none;
+      background-color: green;
+      border-radius: 5px;
+      padding: 8px;
+      color: #f4f4f4;
+      
+      border: none;
+
+    }
+
+    #withdrawalcancelbutton{
+      
+      background-color: rgb(255, 0, 0);
+      border-radius: 5px;
+      padding: 7px;
+      color: #f4f4f4;
+      
+      border: none;
+
+    }
+
+    #withdrawalsupport{
+      
+      background-color: rgb(255, 0, 162);
+      border-radius: 5px;
+      padding: 7px;
+      color: #f4f4f4;
+      
+      border: none;
+
+    }
+
+    #depositverification{
+      background-color: green;
+      border-radius: 5px;
+      color: white;
+      border: none;
+      padding: 10px;
+      cursor: pointer;
+    }
+
+    #depositammountcancel{
+      background-color: rgb(255, 0, 0);
+      
+      border-radius: 5px;
+      color: white;
+      border: none;
+      padding: 10px;
+      cursor: pointer;
+    }
+
+    #suportcontact{
+      background-color: rgb(255, 0, 162);
+      border-radius: 5px;
+      color: #ffffff;
+      border: none;
+      padding: 10px;
+      cursor: pointer;
+    }

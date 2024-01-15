@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>management account</title>
+  <link rel="stylesheet" type="text/css" href="./maccount2.css">
+
+  <script defer src="./account2.js"></script>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap">
+  <script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
+  </head>
+<body>
+
+<div id="navbar">
+  <div>
+    <b>Management account</b>
+  </div>
+  <div>
+    <a href="#">Tasks</a>
+    <a href="#">Accounts</a>
+    <a href="#">Settings</a>
+    <a href="#">Messages</a>
+  </div>
+</div>
+
+<div id="dashboard">
+  <div>
+    <div class="user-info"><br>
+      Authorized User:<br> <b id="username-display"></b>
+      
+      <p><button id="logout-button">Logout</button></p>
+    </div>
+  </div>
+  <div>
+    <!-- Add additional links or content for the dashboard -->
+  </div>
+</div>
+  
+<div id="content"><br><br><br>
+  <h4>You have been granted Account management authorities. Observe integrity</h4>
+  <section id="section2">
+  <h3>Deposit update</h3>
+  <form action="/maccount2" method="post" id="depositupdate">
+    <b style="color: blue; font-size: 120%;"> Input transaction ID and amount<br><br></b>
+    <div id="error-messages"></div><br>
+          <p id="registration-emptyfield-error" class="error"></p>
+    <input type="text" name="transactionid" id="transactionid" placeholder="M-Pesa message ID"><br>
+    <p id="transaction-id" class="error"></p>
+    <input type="number" name="transactionammount" id="transactionammount" placeholder="Ammount"><br>
+    <p id="transaction-amount" class="error"></p>
+    <button >Update</button>
+
+  </form>
+  </section>
+
+  <section id="section4">
+  <h3>Deposit Verification (Only use this form incase of a failed deposit)</h3>
+  <form>
+    <b style="color: blue; font-size: 120%;">Input transaction ID and ammount<br><br></b>
+    
+    <input type="text" name="transactionid" placeholder="Transaction ID"><br><br>
+    
+    <input type="text" name="transactionid" placeholder="Ammount"><br><br>
+    <button >Verify</button>
+
+  </form>
+  
+ 
+  </section>
+
+
+
+You can request withdrawals once per day. Our withdrawals are subjected to 5% taxs.<br><br><br><br><br>.
+</div>
+<footer>
+  <p>&copy; 2023 Your Website Name. All rights reserved.</p>
+</footer>
+<script>
+    // Display error messages based on the error parameter
+    function errorMessages() {
+      const urlParams = new URLSearchParams(window.location.search);
+      const error = urlParams.get('error');
+
+      if (error === 'qjrfapps_gdfajsd_yrkwaqtefd_hdfreaujerw') {
+        document.getElementById("error-messages").style.color = "red";
+        document.getElementById('error-messages').textContent = 'The M-Pesa code you entered already exist. Please counter check the code';
+      } if (error === 'squyta_kiyvcmcs_ytsdwqzp_lmorodr') {
+        document.getElementById("error-messages").style.color = "red";
+        document.getElementById('error-messages').textContent = 'There was an error. Please try again.';
+      } if (error === 'hdjhhwjs8748-uuey-7376ghgdsg-nncb') {
+       document.getElementById("error-messages").style.color = "green";
+       document.getElementById('error-messages').textContent = 'Deposit successfully updated.';
+      }
+    }
+errorMessages();
+  </script>
+</body>
+</html>
