@@ -11,12 +11,95 @@
   <script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
   </head>
 <body>
+  <div id="loading-spinner"></div>
 <div id="container">
+  <div id="internetfloatingCard">Network error. Please check your internet connection</div>
+  <div id="backonlinefloatingCard">You are online</div>
+  <div id="planssection">
+    <b style="font-size: 150%; color: blue;"> Globall Contents Earning plans</b><br><br>
+    <b style="font-size: 130%;">Level 1</b><br>
+    <b style="font-size: 110%;">Activation KES 500. Monthly income KES 1,052.</b><br><br>
+      
+    <table id="planslevel1" style ="border-color: black;">
+      <thead>
+        <tr>
+          <th>Day</th>
+          <th>Capital</th>
+          <th>Daily Promotions</th>
+          <th>Percentage</th>
+          <th>Profit</th>
+          <th>Total</th>
+        </tr>
+      </thead>
+      <tbody id="planslevel1-body">
+      </tbody>
+      </table><br><br>
+
+      <b style="font-size: 150%; color: blue;"> Globall Contents Earning plans</b><br><br>
+      <b style="font-size: 130%;">Level 2</b><br>
+      <b style="font-size: 110%;">Activation KES 1,500. Monthly income KES 3,338.</b><br><br>
+        
+      <table id="planslevel2" style ="border-color: black;">
+        <thead>
+          <tr>
+            <th>Day</th>
+            <th>Capital</th>
+            <th>Daily Promotions</th>
+            <th>Percentage</th>
+            <th>Profit</th>
+            <th>Total</th>
+          </tr>
+        </thead>
+        <tbody id="planslevel2-body">
+        </tbody>
+        </table><br><br>
+
+        <b style="font-size: 150%; color: blue;"> Globall Contents Earning plans</b><br><br>
+      <b style="font-size: 130%;">Level 3</b><br>
+      <b style="font-size: 110%;">Activation KES 4,000. Monthly income KES 9,428.</b><br><br>
+        
+      <table id="planslevel3" style ="border-color: black;">
+        <thead>
+          <tr>
+            <th>Day</th>
+            <th>Capital</th>
+            <th>Daily Promotions</th>
+            <th>Percentage</th>
+            <th>Profit</th>
+            <th>Total</th>
+          </tr>
+        </thead>
+        <tbody id="planslevel3-body">
+        </tbody>
+        </table><br><br>
+
+        <b style="font-size: 150%; color: blue;"> Globall Contents Earning plans</b><br><br>
+      <b style="font-size: 130%;">Level 4</b><br>
+      <b style="font-size: 110%;">Activation KES 10,000. Monthly income KES 24,974.</b><br><br>
+        
+      <table id="planslevel4" style ="border-color: black;">
+        <thead>
+          <tr>
+            <th>Day</th>
+            <th>Capital</th>
+            <th>Daily Promotions</th>
+            <th>Percentage</th>
+            <th>Profit</th>
+            <th>Total</th>
+          </tr>
+        </thead>
+        <tbody id="planslevel4-body">
+        </tbody>
+        </table><br><br>
+  </div>
+
 <div id="accountsecction">
-  <b>Deposit History</b><br><br>
+  <button id="withdraw1" onclick="showSection('withdrawalsecction')">Withdraw</button>
+  <button id="deposit1" onclick="showSection('depositsecction')">Deposit</button><br><br>
+  <b style="color: white;">Deposit History</b><br>
   <div id="notransactions"></div>
   
-  <table id="transactions-table">
+  <table id="transactions-table" style="background-color: aquamarine;">
     <thead>
       <tr>
         <th>Date</th>
@@ -27,7 +110,7 @@
     <tbody id="transactions-body">
      
     </tbody>
-  </table>
+      </table>
 </div>
 
 <div id="walletsecction">
@@ -41,20 +124,30 @@
       <b>Logout</b>
         </section>
 
-        <section id="invitationsection">
-          <b>Invite a friend</b>
+        <section id="invitationsection" onclick="showinvitation()">
+          <div><b>Earn more by inviting friends</b></div>
+          
             </section>
     <br><br><br>
     <section id="otheraccountinfo">
-      <p>Ballance: <b id="account_ballance"></b></p>
-      <p>Type: <b id="current_account"></b></p>
+      <p style="font-size: 150%;" >Ballance: <b style="font-size: 150%; color: #4285f4;" id="account_ballance"></b></p>
+      <p>Level: <b style="font-size: 150%; color: #4285f4;" id="current_account"></b></p>
       <p>Phone number: <b id="account_phonenumber"></b></p>
-      <p>Email: <b id="account_email"></b><b id="account-type"></b></p>
-      
-    </section>
-    
+      <p>Email: <b id="account_email"></b></p>
+      </section>
+    <div id="linkfloatingCard">Link Copied successfully</div>
+    <div id="overlay3" class="overlay3"></div>
+    <div id="copylink" class="card3" style="background-color: blueviolet; color: white;">
+      <span id="closeButton" class="close" onclick="hideinvitation()">&times;</span>
+      <h3>Invitation programme</h3>
+      <button id="copylinkbutton">Copy your invitation link</button><br>
+         <p style="font-size: 120%;"><input  type= "text" id="invitelink" readonly style="background-color: blueviolet; pointer-events: none;"></p>
+      <h4>This is how you will earn from your team</h4>
+      <p style="color: white;">You will earn 10% of your invites first deposits.You will also earn 3% of their daily income in a lifetime </p>
+      <p style="color: white;"><b>Example:</b> If you invite your friend Joe and Joe deposits KES. 10,000, you will earn KES. 1,000 immediatly. And if Joe makes a profit of KES.1000 in a day, you will earn KES.30.<br> If you invite 100 friends and they make a profit of KES.1,000 each per day, you will earn KES.3,000 daily before you submit your own advert. The bigger your team is, the higher you earn.</p>
+    </div>
     <section id="Depositwithdrawal">
-      <b>Account permission details<br>
+      <b>Account permission details</b><br>
       <table>
         <tr>
           <td>Tasks per day</td>
@@ -86,7 +179,7 @@
      </section>
       <p><button id="withdraw1" onclick="showSection('withdrawalsecction')">Withdraw</button>
        <button id="deposit1" onclick="showSection('depositsecction')">Deposit</button>
-      <p>Observe integrity in you tasks always</p><br><br><br><br><br>
+      <p>Observe integrity in your adverts always</p><br><br><br>
 
       
     </div>
@@ -94,77 +187,187 @@
 
 
 <div id="taskssecction">
-  <section id="section1">
-  Free Account. Earn KES.23 per day
-  <p>Do 1 task per day free and earn KES.23 per task. Copy paste the questions into ChatGpt and edit for us the results.</p>
+  <h2 style="text-align: center;">Globall Contents</h2>
+  <h6>Note: Promoting an advert in a lower level than your level will earn you less. Scroll down to see the levels</h6>
+  <advertisement id="plansview">
+    <advertisement id="howyouearn" onclick="showSection('planssection')" style="cursor: pointer;">
+      <div class="ad-container">
+         <div class="ad" style="background-image: url(crypto.jpg);  transform: scale(1);" >
+             <h2 style="color: yellow;">Click Here to see how you will Earn</h2>
+               </div> <div class="ad" style="background-image: url(crypto.jpg);  transform: scale(1);" >
+                <h4 style="color: yellow;">Earn more by <b style="font-size: 150%;">inviting friends.</b> You can become a millionaire if you build a strong team</h4>
+                  </div>
+         </div>
+ </advertisement>
+ 
+     <div class="ad-container">
+        <div class="ad" style="background-image: url(crypto.jpg); transform: scale(1)">
+            <h2 style="color: yellow;">Promote Crypto and get paid</h2>
+            <div style="font-size: 80%;">
+            <p>You will get different advertisments about differnt crypto currencies daily. You need to clickk on it to promote it. You get paid by promoting these crypto depending on your account level and ballance</p>
+            <p>Globall Contents is a well known advertisment company founded in 2008</p>
+            <p>Millions of Marchants want their Crypto Currencies Promoted and they pay for it. We then hire willing individuals to help us promote these crypto currencies and pay them a percentage of the profit we get from these Marchants</p>
+            </div>
+            <h3 style="color: yellow;">Note: You can withdraw all your deposited money plus the daily profits. </h3>
+            
+        </div>
+        </div>
+</advertisement>
+
+<advertisement id="freelevel">
+    <h2>Free Level. Monthly income KES.390</h2>
+    <p style="color: white;">Click on the advert bellow to promote it</p>
+    <div class="ad-container">
+        <div class="ad" style="background-image: url(crypto2.jpg);">
+            <h3>Free </h3>
+            <p>Click here to promote</p>
+            <div style="font-size: 150%; background-color: rgb(195, 226, 43);" id="section1"></div>
+        </div>
+       
+    </div>
+</advertisement>
+
+<advertisement id="level1">
+  <h2>Level 1. Monthly income KES.1,052</h2>
+  <p style="color: white;">Click on the advert bellow to promote it</p>
+    <div class="ad-container">
+      <div class="ad" style="background-image: url(crypto7.jpeg);">
+          <h3></h3>
+          <p>Click here to promote</p>
+          <div style="font-size: 150%; background-color: rgb(195, 226, 43);" id="section2"></div>
+          <img id="level1status">
+      </div>
+      </div>
+</advertisement>
+<advertisement id="level2">
+    <h2>Level 2. Monthly income KES.3,338</h2>
+    <p style="color: white;">Click on the advert bellow to promote it</p>
+    <div class="ad-container">
+        <div class="ad" style="background-image: url(crypto4.jpeg);">
+            <h3></h3>
+            <div style="font-size: 150%; background-color: rgb(195, 226, 43);" id="section3"></div>
+            <p style="font-size: 120%;">Click here to promote</p>
+            <img id="level2status">
+        </div>
+        </div>
+</advertisement>
+
+<advertisement id ="level3">
+  <h2>Level 3. Monthly income KES.9,428</h2>
+  <p style="color: white;">Click on the advert bellow to promote it</p>
+  <div class="ad-container">
+      <div class="ad" style="background-image: url(crypto5.jpeg);">
+          <h3></h3>
+          <div style="font-size: 150%; background-color: rgb(195, 226, 43);" id="section4"></div>
+          <p style="font-size: 120%;">Click here to promote</p>
+          <img id="level3status">
+      </div>
+      </div>
+</advertisement>
+
+<advertisement id="level4">
+  <h2>Level 4. Monthly income KES.23,561</h2>
+  <p style="color: white;">Click on the advert bellow to promote it</p>
+    <div class="ad-container">
+      <div class="ad" style="background-image: url(crypto6.jpeg);">
+          <h3></h3>
+          <p style="font-size: 120%;">Click here to promote</p>
+          <div style="font-size: 150%; background-color: rgb(195, 226, 43);" id="section5"></div>
+          <img id="level4status">
+      </div>
+      </div>
+</advertisement>
+
+<advertisement id="level5">
+  <h2>Level 5. Monthly income KES.51,454</h2>
+  <p>Be the first to get your hands on the latest arrivals. Stay trendy with our newest collection!</p>
+  <div class="ad-container">
+      <div class="ad" style="background-image: url(crypto2.jpg);">
+          <h3></h3>
+          <div style="font-size: 150%; background-color: rgb(195, 226, 43);" id="section6"></div>
+          <p style="font-size: 120%;">Click here to promote</p>
+          <img id="level5status">
+      </div>
+      </div>
+</advertisement>
+
+<advertisement id="level6">
+  <h2>Level 6. Monthly income KES.132,428 </h2>
+  <p style="color: white;">Click on the advert bellow to promote it</p>
+    <div class="ad-container">
+      <div class="ad" style="background-image: url(crypto3.jpeg);">
+          <h3></h3>
+          <div style="font-size: 150%; background-color: rgb(195, 226, 43);" id="section7"></div>
+          <p style="font-size: 120%;">Click here to promote</p>
+          <img id="level6status">
+      </div>
+      </div>
+</advertisement>
+
+<advertisement id="level7">
+  <h2>Level 7. Monthly income KES.280,679</h2>
+  <p style="color: white;">Click on the advert bellow to promote it</p>
+    <div class="ad-container">
+      <div class="ad" style="background-image: url(crypto4.jpeg);">
+          <h3></h3>
+          <div style="font-size: 150%; background-color: rgb(195, 226, 43);" id="section8"></div>
+          <p style="font-size: 120%;">Click here to promote</p>
+          <img id="level7status">
+      </div>
+      </div>
+</advertisement>
+
+<advertisement id="level8">
+  <h2>Level 8. Monthly income KES.866,793</h2>
+  <p style="color: white;">Click on the advert bellow to promote it</p>  <div class="ad-container">
+      <div class="ad" style="background-image: url(crypto4.jpeg);">
+          <h3>KES.300,000</h3>
+          <div style="font-size: 150%; background-color: rgb(195, 226, 43);" id="section9"></div>
+          <p style="font-size: 120%;">Click here to promote</p>
+          <img id="level8status">
+      </div>
+      </div>
+</advertisement>
+
+<advertisement id="level9">
+  <h2>Level 9 Monthly income KES.1,487,073</h2>
+  <p style="color: white;">Click on the advert bellow to promote it</p>  <div class="ad-container">
+      <div class="ad" style="background-image: url(crypto4.jpeg);">
+          <h3></h3>
+          <div style="font-size: 150%; background-color: rgb(195, 226, 43);" id="section10"></div>
+          <p style="font-size: 120%;">Click here to promote</p>
+          <img id="level9status">
+      </div>
+      </div>
+</advertisement>
+
+<advertisement id="level10">
+  <h2>Level 10. Monthly income KES.2,500,000</h2>
+  <p style="color: white;">Click on the advert bellow to promote it</p>  <div class="ad-container">
+      <div class="ad" style="background-image: url(crypto4.jpeg);">
+          <h3></h3>
+          <div style="font-size: 150%; background-color: rgb(195, 226, 43);" id="section11"></div>
+          <p style="font-size: 120%;">Click here to promote</p>
+          <img id="level10status">
+      </div>
+      </div>
+</advertisement>
+
   
- <button>Unlocked</button>
-  </section>
-
-<section id="section2">
-  <h3>WLD Account (KES. 500). Earn KES.62 per day</h3>
-  <p>Do 1 task per day and earn KES.62 per task.</p>
-  <button>Locked</button>
-</section>
-
-<section id="section3">
-  <h3>INJ Account (KES. 2,000). Earn KES.154 per day</h3>
-  <p>Do 2 tasks per day and earn KES.77 per task.</p>
-   <button>Locked</button>
-</section>
-
-<section id="section4">
-  <h3>BNB Account (KES. 5,000). Earn KES.278 per day</h3>
-  <p>Do 2 tasks per day and earn KES.139 per task.</p>
-  <button>Locked</button>
-</section>
-
-<section id="section5">
-  <h3>SOL Account (KES. 15,000). Earn KES.702 per day</h3>
-  <p>Do 3 tasks per day and earn KES.234 per task.</p>
-  <button>Locked</button>
-</section>
-
-<section id="section6">
-  <h3>ETH Account (KES. 40,000). Earn KES.1,161 per day</h3>
-  <p>Do 3 tasks per day and earn KES.387 per task.</p>
-  <button>Locked</button>
-</section>
-
-<section id="section7">
-  <h3>BTC Account (KES. 80,000). Earn KES.2,325 per day</h3>
-  <p>Do 3 tasks per day and earn KES.775 per task.</p>
-  <button>Locked</button>
-</section>
-
-<section id="section8">
-  <h3>Silver Account (KES.200,000). Earn KES.6,200 per day</h3>
-  <p>Do 5 tasks per day and earn KES.1240 per task.</p>
-  <button>Locked</button>
-</section>
-
-<section id="section8">
-  <h3>GOLD Account (KES.500,000). Earn KES.15,345 per day</h3>
-  <p>Do 9 tasks per day and earn KES.1,705 per task.</p>
-  <button>Locked</button>
-</section>
-
-<section id="section8">
-  <h3>GOLD Account (KES.1,000,000). Earn KES.31,000 per day</h3>
-  <p>Do 10 tasks per day and earn KES.3,100 per task.</p>
-  <button>Locked</button>
-</section>
-
-<section id="section8">
-  <h3>GOLD Account (KES.3,000,000). Earn KES.77,500 per day</h3>
-  <p>Do 10 tasks per day and earn KES.7,750 per task.</p>
-  <button>Locked</button>
-</section>
-
+    <div id="questions-container"></div>
+    <br><br><br>
+    <p>Globall Contents task page</p>
 </div>
 
 <div id="depositsecction">
   <section id="otheraccountinfo">
+    <div id="overlay" class="overlay"></div>
+    <div id="depositcad" class="card">
+      <span id="closeButton" class="close" onclick="hideDepositCard()">&times;</span>
+      <h2 >Success</h2>
+      <img style="float: center;" src="tick.png" alt="Successful Deposit" width="70">
+      <h4>Your deposit was Successful. You can track all your deposits in the deposit history.</h4>
+    </div>
     <b style="color: green; font-size: 200%;">M-Pesa Deposit</b>
     <form id="depositform">
     <label>Enter amount to deposit<sup style="color: red;">*</sup></label><br><br>
@@ -176,10 +379,10 @@
     <section id="depositsteps">
       <h3>Steps to successfully complete this deposit</h3>
       <ol>
-        <li>Go to M-Pesa paybil</li>
-        <li>Pay KES. <b id="payammount"></b></li>
-        <li>Business Number <b>542542</b></li>
-        <li>Account Number <b>647000</b></li>
+        <li>Go to M-Pesa Send Money</li>
+        <li>Send KES. <b id="payammount"></b></li>
+        <li>Phone Number: <b id="accountphone"></b></li>
+        <li>Name: <b id="accountname"></li>
         <li>Wait for M-Pesa confirmation message and enter the code bellow to complete your deposit</li>
       </ol><br>
       <button id="depositammountcancel" onclick="pr()">Cancel</button>
@@ -192,7 +395,7 @@
         <p id="id-error-message" class="error"></p>
         <button  id="depositverification" onclick="verifyPayment()">Verify Payment</button>
         <button id="suportcontact" >Contact Support</button>
-        <p>Observe integrity in you tasks always</p><br><br><br><br><br>
+        <p>Observe integrity in your adverts always</p><br><br><br>
     </section>
       </section>
     
@@ -200,26 +403,38 @@
 
 <div id="withdrawalsecction">
   <section id="otheraccountinfo">
+    <div id="overlay2" class="overlay2"></div>
+    <div id="withdraw" class="card">
+      <span id="closeButton" class="close" onclick="hideWithdraw()">&times;</span>
+      <h2 >Success</h2>
+      <img style="float: center;" src="tick.png" alt="Successful Withdrawal" width="70">
+      <h5>Your Withdrawal has been submitted successfully. You will recieve your payment within 24hrs</h5>
+    </div>
     <b style="color: green; font-size: 150%;">Withdraw Funds</b>
-    <form  id="withdrawalform">
+    <form action="/withdraw" method="post" id="withdrawalform" >
     <label>Enter amount to withdraw<sup style="color: red;">*</sup></label><br><br>
     <input type="number" id="withdrawalatammount" name="withdrawalatammount" placeholder="Minimum KES.500 Maximum.450,000" oninput="wd()">
     <input type="hidden" id="phonenumbertext" name="phonenumbertext">
     <p id="withdrwal-error-message" class="error"></p>
      </form>
-     <button id="withdrawalconfirmationbutton" onclick="withdraw()">Confirm Withdrawal</button>
+     <button id="withdrawalconfirmationbutton" onclick="withdraw()
+     ">Confirm Withdrawal</button>
     
     <section id="withdrawalconfirmation">
       <h3>Please confirm these details</h3>            
         <p>Your withdrawal of KES. <b id="withdrawalconfirmationatammount"></b> will be paid to <b id="withdrawalphone"></b></p>
-        <p>Note: Withdrawals are subjected to 5% tax</p>
+        <p style="color: red;">Note: Withdrawals are subjected to 10% tax</p>
         
         <button id="withdrawalcancelbutton" onclick="pr()">Cancel</button>
         <button id="withdrawalsupport">Not your number? Contact Support</button>
       
     
   </section><br><br>
-<b id="nowithdrawals"></b><br>
+
+  
+  <div id="nowithdrawals"></div>
+  <button id="hidewithdrawalhistory" onclick="hideWithdrawalhistory()">Hide History</button>
+  <button id="showwithdrawalhistory" onclick="showWithdrawalhistory()">Show History</button>
   <table id="withdrawals-table">
     <thead>
       <tr>
@@ -231,26 +446,37 @@
     <tbody id="withdrawals-body">
      
     </tbody>
-  </table>
+     </table>
+   
 </div>
 
-<div id="teamsecction">
-  <section id="teaminfo">
-    These are your team members
+<section id="teamsecction">
+  <div id="teaminfo">
+     <div id="nomembers"></div><br>
     
+    <table id="team-table">
+      <thead>
+        <tr>
+          <th>Member</th>
+          <th>First recharge amount</th>
+          <th>Amount you earned</th>
+        </tr>
+      </thead>
+      <tbody id="team-body">
+       
+      </tbody>
+      
+    </table>
+    
+  </div><br><br>
   </section>
 </div>
 </div>
 
-
-
-
-
-
 <section id="bottomsecction">
   
 <button id="buttonRight" onclick="showSection('accountsecction')">
-<b>My Funds</b>
+<b>Withdraw/ Deposit</b>
 </button>
 <button id="buttonCenter" onclick="showSection('taskssecction')">
 <b>My Tasks</b>
@@ -263,6 +489,40 @@
 </button>
 </section></div>
 
+<script>
+
+function linkfloatingCard() {
+  var linkfloatingCard = document.getElementById('linkfloatingCard');
+  
+  linkfloatingCard.style.display = 'block';
+
+  // Automatically hide the floating card after 3 seconds
+  setTimeout(function() {
+      linkfloatingCard.style.display = 'none';
+  }, 2000);
+}
+
+  function copyToClipboard(text) {
+  navigator.clipboard.writeText(text).then(
+    () => {
+      linkfloatingCard();
+    },
+    (err) => {
+      console.error('Unable to copy to clipboard', err);
+      alert('Failed to copy link to clipboard. Please copy it manually.');
+    }
+  );
+}
+
+const invitationButton = document.getElementById('copylinkbutton');
+
+invitationButton.addEventListener('click', () => {
+  const inviteLinkElement = document.getElementById('invitelink'); 
+  // Get the value from the input field and copy it to the clipboard
+  const inviterLink = inviteLinkElement.value.trim();
+  copyToClipboard(inviterLink);
+});
+</script>
 
 </body>
 </html>
